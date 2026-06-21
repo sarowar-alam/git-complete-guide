@@ -9,7 +9,7 @@ You want to contribute to the `Git-Fundamentals` repository. You'll fork it, add
 ## Tasks
 
 ### Task 1
-Fork `https://github.com/md-sarowar-alam/Git-Fundamentals` to your GitHub account.
+Fork `https://github.com/sarowar-alam/git-complete-guide` to your GitHub account.
 
 ### Task 2
 Clone **your fork** locally. Verify that `git remote -v` shows `origin` pointing to your fork (not the original).
@@ -41,7 +41,7 @@ After opening the PR, make one more commit on the same branch (add one more note
 ## Validation Checklist
 
 - [ ] `git remote -v` shows both `origin` (your fork) and `upstream` (original)
-- [ ] Your PR is visible at `github.com/md-sarowar-alam/Git-Fundamentals/pulls`
+- [ ] Your PR is visible at `github.com/sarowar-alam/git-complete-guide/pulls`
 - [ ] The PR shows your updated commit after Task 7
 - [ ] `git log --oneline` on your feature branch shows the rebase was successful (no merge commit from the sync)
 

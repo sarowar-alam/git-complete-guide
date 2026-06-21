@@ -10,7 +10,7 @@ Fork a public repository, clone your fork, add the upstream remote, make a chang
 
 ```mermaid
 graph TD
-    UP["Upstream Repo\ngithub.com/md-sarowar-alam/Git-Fundamentals"]
+    UP["Upstream Repo\ngithub.com/sarowar-alam/git-complete-guide"]
     FORK["Your Fork\ngithub.com/YOU/Git-Fundamentals"]
     LOCAL["Your Local Clone"]
 
@@ -45,7 +45,7 @@ You'll fork the main Git-Fundamentals repository for this lab.
 
 ### Task 1 — Fork the Repository
 
-1. Go to: `https://github.com/md-sarowar-alam/Git-Fundamentals`
+1. Go to: `https://github.com/sarowar-alam/git-complete-guide`
 2. Click **Fork** (top-right)
 3. Select your account as the destination
 4. GitHub creates: `github.com/YOUR_USERNAME/Git-Fundamentals`
@@ -67,13 +67,13 @@ git remote -v
 ### Task 3 — Add the Upstream Remote
 
 ```bash
-git remote add upstream https://github.com/md-sarowar-alam/Git-Fundamentals.git
+git remote add upstream https://github.com/sarowar-alam/git-complete-guide.git
 
 git remote -v
 # origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (fetch)
 # origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (push)
-# upstream  https://github.com/md-sarowar-alam/Git-Fundamentals.git (fetch)
-# upstream  https://github.com/md-sarowar-alam/Git-Fundamentals.git (push)
+# upstream  https://github.com/sarowar-alam/git-complete-guide.git (fetch)
+# upstream  https://github.com/sarowar-alam/git-complete-guide.git (push)
 ```
 
 ### Task 4 — Create a Feature Branch
@@ -134,7 +134,7 @@ git push origin feature/add-my-note
 2. GitHub shows a banner: **"Compare & pull request"** for `feature/add-my-note`
 3. Click it
 4. Set:
-   - **Base repository:** `md-sarowar-alam/Git-Fundamentals`
+   - **Base repository:** `sarowar-alam/git-complete-guide`
    - **Base branch:** `main`
    - **Head repository:** `YOUR_USERNAME/Git-Fundamentals`
    - **Compare branch:** `feature/add-my-note`
@@ -167,7 +167,7 @@ git branch
 ```
 
 Also verify on GitHub that your PR is visible at:
-`github.com/md-sarowar-alam/Git-Fundamentals/pulls`
+`github.com/sarowar-alam/git-complete-guide/pulls`
 
 ---
 
@@ -177,8 +177,8 @@ Also verify on GitHub that your PR is visible at:
 $ git remote -v
 origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (fetch)
 origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (push)
-upstream  https://github.com/md-sarowar-alam/Git-Fundamentals.git (fetch)
-upstream  https://github.com/md-sarowar-alam/Git-Fundamentals.git (push)
+upstream  https://github.com/sarowar-alam/git-complete-guide.git (fetch)
+upstream  https://github.com/sarowar-alam/git-complete-guide.git (push)
 
 $ git log --oneline
 abc123d (HEAD -> feature/add-my-note, origin/feature/add-my-note) docs: add personal git learning notes

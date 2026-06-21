@@ -2,14 +2,14 @@
 
 > Everything you need to go from understanding version control to deploying real projects with Git — hands-on, practical, and straight to the point.
 
-[![GitHub repo](https://img.shields.io/badge/GitHub-Git--Fundamentals-blue?logo=github)](https://github.com/md-sarowar-alam/Git-Fundamentals)
+[![GitHub repo](https://img.shields.io/badge/GitHub-Git--Fundamentals-blue?logo=github)](https://github.com/sarowar-alam/git-complete-guide)
 [![Platform](https://img.shields.io/badge/Platform-GitHub%20Free-green)](https://github.com)
 [![Shell](https://img.shields.io/badge/Shell-Git%20Bash-orange)](https://git-scm.com/downloads)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
 **Clone this repo:**
 ```bash
-git clone https://github.com/md-sarowar-alam/Git-Fundamentals.git
+git clone https://github.com/sarowar-alam/git-complete-guide.git
 cd Git-Fundamentals
 ```
 
@@ -171,10 +171,10 @@ This comprehensive guide is available on GitHub. You can clone it to your local 
 
 ```bash
 # Clone via HTTPS
-git clone https://github.com/md-sarowar-alam/Git-Fundamentals.git
+git clone https://github.com/sarowar-alam/git-complete-guide.git
 
 # Or clone via SSH
-git clone git@github.com:md-sarowar-alam/Git-Fundamentals.git
+git clone git@github.com:sarowar-alam/git-complete-guide.git
 
 # Navigate into the directory
 cd Git-Fundamentals
@@ -185,7 +185,7 @@ code README.md  # VS Code
 cat README.md   # View in terminal
 ```
 
-**Star this repository** ⭐ on [GitHub](https://github.com/md-sarowar-alam/Git-Fundamentals) if you find it helpful!
+**Star this repository** ⭐ on [GitHub](https://github.com/sarowar-alam/git-complete-guide) if you find it helpful!
 
 ---
 
@@ -513,9 +513,9 @@ git clone https://github.com/username/public-repo.git
 git clone git@github.com:username/public-repo.git
 
 # Example: Clone this Git Fundamentals guide
-git clone https://github.com/md-sarowar-alam/Git-Fundamentals.git
+git clone https://github.com/sarowar-alam/git-complete-guide.git
 # Or with SSH
-git clone git@github.com:md-sarowar-alam/Git-Fundamentals.git
+git clone git@github.com:sarowar-alam/git-complete-guide.git
 
 # Clone to a specific directory
 git clone https://github.com/username/public-repo.git my-folder
@@ -2474,7 +2474,7 @@ gh pr review 123 --approve
 
 Heroku is a cloud platform that enables developers to deploy, manage, and scale applications easily using Git.
 
-**Practice Repository**: [my-heroku-app](https://github.com/md-sarowar-alam/my-heroku-app.git) - A sample application for Heroku deployment practice (private repo).
+**Practice Repository**: [my-heroku-app](https://github.com/sarowar-alam/my-heroku-app.git) - A sample application for Heroku deployment practice (private repo).
 
 > **Note**: The practice repository is private. You'll need to fork it or create your own application following the examples below.
 
@@ -2569,8 +2569,8 @@ heroku apps:info my-app
 # Verify remote was added
 git remote -v
 # Should show:
-# origin  https://github.com/md-sarowar-alam/my-heroku-app.git (fetch)
-# origin  https://github.com/md-sarowar-alam/my-heroku-app.git (push)
+# origin  https://github.com/sarowar-alam/my-heroku-app.git (fetch)
+# origin  https://github.com/sarowar-alam/my-heroku-app.git (push)
 # heroku  https://git.heroku.com/my-awesome-app.git (fetch)
 # heroku  https://git.heroku.com/my-awesome-app.git (push)
 
@@ -2606,7 +2606,7 @@ heroku logs --tail
 
 ```bash
 # Clone a sample Heroku app (private repo - requires authentication)
-git clone https://github.com/md-sarowar-alam/my-heroku-app.git
+git clone https://github.com/sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # Login to Heroku
@@ -2858,7 +2858,7 @@ Here's a step-by-step guide using the actual `my-heroku-app` repository:
 
 ```bash
 # Step 1: Clone the repository
-git clone https://github.com/md-sarowar-alam/my-heroku-app.git
+git clone https://github.com/sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # Step 2: Review the project structure
@@ -2897,7 +2897,7 @@ heroku create devops-batch09-myapp
 # Step 8: Verify remotes were added
 git remote -v
 # Should show:
-# origin  https://github.com/md-sarowar-alam/my-heroku-app.git
+# origin  https://github.com/sarowar-alam/my-heroku-app.git
 # heroku  https://git.heroku.com/devops-batch09-myapp.git
 
 # Step 9: Deploy to Heroku
@@ -3154,7 +3154,7 @@ heroku repo:purge_cache -a my-app
 
 ```bash
 # Clone your application
-git clone https://github.com/md-sarowar-alam/my-heroku-app.git
+git clone https://github.com/sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # Add Heroku remote (if not already added)
@@ -3749,10 +3749,10 @@ git clean -nd
 ## Additional Resources
 
 ### This Guide
-- **GitHub Repository**: https://github.com/md-sarowar-alam/Git-Fundamentals
-- **Issues & Discussions**: https://github.com/md-sarowar-alam/Git-Fundamentals/issues
-- **Fork This Repo**: https://github.com/md-sarowar-alam/Git-Fundamentals/fork
-- **Sample Heroku App**: https://github.com/md-sarowar-alam/my-heroku-app (Private - for deployment practice)
+- **GitHub Repository**: https://github.com/sarowar-alam/git-complete-guide
+- **Issues & Discussions**: https://github.com/sarowar-alam/git-complete-guide/issues
+- **Fork This Repo**: https://github.com/sarowar-alam/git-complete-guide/fork
+- **Sample Heroku App**: https://github.com/sarowar-alam/my-heroku-app (Private - for deployment practice)
 
 ### Official Documentation
 - **Official Git Documentation**: https://git-scm.com/doc
@@ -3769,7 +3769,7 @@ git clean -nd
 ### Exercise 1: Basic Workflow
 ```bash
 # 1. Clone this repository
-git clone https://github.com/md-sarowar-alam/Git-Fundamentals.git
+git clone https://github.com/sarowar-alam/git-complete-guide.git
 cd Git-Fundamentals
 
 # 2. Create a test file
@@ -3820,7 +3820,7 @@ git log --oneline
 ### Exercise 5: Forking Workflow
 ```bash
 # 1. Fork this repository on GitHub
-# Go to: https://github.com/md-sarowar-alam/Git-Fundamentals
+# Go to: https://github.com/sarowar-alam/git-complete-guide
 # Click "Fork" button
 
 # 2. Clone your fork locally
@@ -3828,7 +3828,7 @@ git clone https://github.com/YOUR_USERNAME/Git-Fundamentals.git
 cd Git-Fundamentals
 
 # 3. Add upstream remote
-git remote add upstream https://github.com/md-sarowar-alam/Git-Fundamentals.git
+git remote add upstream https://github.com/sarowar-alam/git-complete-guide.git
 git remote -v
 
 # 4. Create a feature branch
@@ -3859,7 +3859,7 @@ git push origin docs/improve-readme
 # Complete Heroku Deployment Exercise
 
 # 1. Clone the sample Heroku app
-git clone https://github.com/md-sarowar-alam/my-heroku-app.git
+git clone https://github.com/sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # 2. Inspect the files
@@ -3950,15 +3950,15 @@ heroku apps:destroy --app your-app-name --confirm your-app-name
 ---
 
 **Last Updated**: January 2026  
-**Repository**: [md-sarowar-alam/Git-Fundamentals](https://github.com/md-sarowar-alam/Git-Fundamentals)  
-**Maintainer**: [MD Sarowar Alam](https://github.com/md-sarowar-alam)  
+**Repository**: [sarowar-alam/git-complete-guide](https://github.com/sarowar-alam/git-complete-guide)  
+**Maintainer**: [MD Sarowar Alam](https://github.com/sarowar-alam)  
 **Audience**: Fresh DevOps Engineers  
 
 ---
 
 ### Support This Project
 
-- ⭐ **Star** this repository: https://github.com/md-sarowar-alam/Git-Fundamentals
+- ⭐ **Star** this repository: https://github.com/sarowar-alam/git-complete-guide
 - 🍴 **Fork** it for your own use
 - 🐛 **Report issues** or **suggest improvements**
 - 📖 **Share** with your fellow DevOps engineers
@@ -3970,7 +3970,7 @@ heroku apps:destroy --app your-app-name --confirm your-app-name
 
 We welcome contributions to improve this guide! Here's how:
 
-1. **Fork the repository**: [md-sarowar-alam/Git-Fundamentals](https://github.com/md-sarowar-alam/Git-Fundamentals)
+1. **Fork the repository**: [sarowar-alam/git-complete-guide](https://github.com/sarowar-alam/git-complete-guide)
 2. **Clone your fork**:
    ```bash
    git clone https://github.com/YOUR_USERNAME/Git-Fundamentals.git
@@ -3978,7 +3978,7 @@ We welcome contributions to improve this guide! Here's how:
    ```
 3. **Add upstream remote**:
    ```bash
-   git remote add upstream git@github.com:md-sarowar-alam/Git-Fundamentals.git
+   git remote add upstream git@github.com:sarowar-alam/git-complete-guide.git
    ```
 4. **Create a branch**:
    ```bash
@@ -3995,7 +3995,7 @@ We welcome contributions to improve this guide! Here's how:
    ```
 7. **Create a Pull Request** on GitHub
 
-**Issues**: Report bugs or suggest improvements at [GitHub Issues](https://github.com/md-sarowar-alam/Git-Fundamentals/issues)
+**Issues**: Report bugs or suggest improvements at [GitHub Issues](https://github.com/sarowar-alam/git-complete-guide/issues)
 
 ---
 
@@ -4005,7 +4005,7 @@ We welcome contributions to improve this guide! Here's how:
 Lead DevOps Engineer, Hogarth Worldwide  
 📧 Email: sarowar@hotmail.com  
 🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)  
-🐙 GitHub: [@md-sarowar-alam](https://github.com/md-sarowar-alam)
+🐙 GitHub: [@sarowar-alam](https://github.com/sarowar-alam)
 
 ---
 

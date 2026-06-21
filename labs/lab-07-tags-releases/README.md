@@ -27,21 +27,25 @@ graph LR
 
 ## 3. Prerequisites
 
-- `git-lab-01` repo with several commits
-- GitHub free account
 - Git Bash open
+- GitHub free account
+- GitHub CLI (`gh`) installed and authenticated
 
 ---
 
 ## 4. Setup
 
 ```bash
-cd ~/git-lab-01
-git switch main
-git pull origin main
+# Create a fresh repo with several commits (tags need history)
+mkdir ~/git-lab-07 && cd ~/git-lab-07
+git init
+echo "# My Project" > README.md && git add . && git commit -m "init: lab setup"
+echo "version: 0.1.0" > version.txt && git add . && git commit -m "feat: add version file"
+echo "## Changelog" > CHANGELOG.md && git add . && git commit -m "docs: add changelog"
+gh repo create git-lab-07 --public --push --source=.
 
 git log --oneline
-# Make sure you have at least 3 commits
+# Should show 3 commits
 ```
 
 ---

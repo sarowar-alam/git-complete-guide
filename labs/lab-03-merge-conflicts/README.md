@@ -25,18 +25,22 @@ Both branches changed the same line — Git can't decide. You decide.
 
 ## 3. Prerequisites
 
-- Completed Lab 02
-- `git-lab-01` repo open in Git Bash
-- Clean working tree (`git status` shows nothing to commit)
+- Git Bash open
+- GitHub free account
+- GitHub CLI (`gh`) installed and authenticated
 
 ---
 
 ## 4. Setup
 
 ```bash
-cd ~/git-lab-01
-git switch main
-git pull origin main
+# Create a fresh repo for this lab
+mkdir ~/git-lab-03 && cd ~/git-lab-03
+git init
+echo "# My Project" > README.md
+git add README.md
+git commit -m "init: lab setup"
+gh repo create git-lab-03 --public --push --source=.
 ```
 
 ---
@@ -236,8 +240,13 @@ $ cat index.html
 ## 9. Cleanup
 
 ```bash
-git branch -d feature/new-header
+cd ~/git-lab-03
+git branch -d feature/new-header 2>/dev/null || true
 git push origin main
+
+# Delete the GitHub repo when done
+gh repo delete md-sarowar-alam/git-lab-03 --yes
+cd ~ && rm -rf git-lab-03
 ```
 
 ---

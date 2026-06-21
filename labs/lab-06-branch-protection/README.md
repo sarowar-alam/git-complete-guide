@@ -28,18 +28,25 @@ graph LR
 
 ## 3. Prerequisites
 
-- `git-lab-01` repo on GitHub (public)
-- GitHub free account
 - Git Bash open
+- GitHub free account (public repo required for branch protection on free tier)
+- GitHub CLI (`gh`) installed and authenticated
 
 ---
 
 ## 4. Setup
 
-Make sure your repo is public:
+```bash
+# Create a fresh public repo for this lab
+mkdir ~/git-lab-06 && cd ~/git-lab-06
+git init
+echo "# My Project" > README.md
+git add README.md
+git commit -m "init: lab setup"
+gh repo create git-lab-06 --public --push --source=.
 ```
-GitHub → Your repo → Settings → Danger Zone → Change visibility → Public
-```
+
+> The repo must be **public** — branch protection is only available on public repos with a free GitHub account.
 
 ---
 
@@ -47,7 +54,7 @@ GitHub → Your repo → Settings → Danger Zone → Change visibility → Publ
 
 ### Task 1 — Enable Branch Protection
 
-1. Go to your `git-lab-01` repository on GitHub
+1. Go to your `git-lab-06` repository on GitHub
 2. Click **Settings** → **Branches** → **Add branch ruleset** (or **Add rule** on older UI)
 3. Set **Branch name pattern:** `main`
 4. Enable the following:
@@ -63,7 +70,7 @@ GitHub → Your repo → Settings → Danger Zone → Change visibility → Publ
 ### Task 2 — Test: Try to Push Directly
 
 ```bash
-cd ~/git-lab-01
+cd ~/git-lab-06
 git switch main
 
 echo "# Direct push test" >> README.md
@@ -77,7 +84,7 @@ You should see:
 ```
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: At least 1 approving review is required by reviewers with write access.
-To https://github.com/md-sarowar-alam/git-lab-01.git
+To https://github.com/md-sarowar-alam/git-lab-06.git
  ! [remote rejected] main -> main (protected branch hook declined)
 error: failed to push some refs
 ```
@@ -201,10 +208,13 @@ remote: error: Cannot delete this branch.
 ## 9. Cleanup
 
 ```bash
-git branch -d feature/readme-update
-git push origin --delete feature/readme-update
+cd ~/git-lab-06
+git branch -d feature/readme-update 2>/dev/null || true
+git push origin --delete feature/readme-update 2>/dev/null || true
 
-# Branch protection rules stay active (that's the point)
+# Delete the GitHub repo when done
+gh repo delete md-sarowar-alam/git-lab-06 --yes
+cd ~ && rm -rf git-lab-06
 ```
 
 ---

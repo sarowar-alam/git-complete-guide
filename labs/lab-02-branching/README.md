@@ -25,18 +25,22 @@ gitGraph
 
 ## 3. Prerequisites
 
-- Completed Lab 01 (you have `git-lab-01` locally and on GitHub)
 - Git Bash open
+- GitHub free account
+- GitHub CLI (`gh`) installed and authenticated
 
 ---
 
 ## 4. Setup
 
 ```bash
-cd ~/git-lab-01
-git pull origin main
-git status
-# Should show: nothing to commit, working tree clean
+# Create a fresh repo for this lab
+mkdir ~/git-lab-02 && cd ~/git-lab-02
+git init
+echo "# My Project" > README.md
+git add README.md
+git commit -m "init: lab setup"
+gh repo create git-lab-02 --public --push --source=.
 ```
 
 ---
@@ -220,9 +224,13 @@ $ git branch
 ## 9. Cleanup
 
 ```bash
-# Nothing to remove — main branch and GitHub repo stay for future labs
-git status
-# Should be clean
+cd ~/git-lab-02
+git switch main
+git push origin main
+
+# Delete the GitHub repo when done
+gh repo delete md-sarowar-alam/git-lab-02 --yes
+cd ~ && rm -rf git-lab-02
 ```
 
 ---

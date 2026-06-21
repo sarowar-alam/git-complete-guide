@@ -39,18 +39,22 @@ gitGraph
 
 ## 3. Prerequisites
 
-- Completed Lab 03
-- `git-lab-01` repo, clean working tree
 - Git Bash open
+- GitHub free account
+- GitHub CLI (`gh`) installed and authenticated
 
 ---
 
 ## 4. Setup
 
 ```bash
-cd ~/git-lab-01
-git switch main
-git pull origin main
+# Create a fresh repo for this lab
+mkdir ~/git-lab-04 && cd ~/git-lab-04
+git init
+echo "# My Project" > README.md
+git add README.md
+git commit -m "init: lab setup"
+gh repo create git-lab-04 --public --push --source=.
 ```
 
 ---
@@ -231,8 +235,13 @@ $ git log --oneline --graph
 ## 9. Cleanup
 
 ```bash
+cd ~/git-lab-04
 git branch -d feature/search 2>/dev/null || true
 git push origin main
+
+# Delete the GitHub repo when done
+gh repo delete md-sarowar-alam/git-lab-04 --yes
+cd ~ && rm -rf git-lab-04
 ```
 
 ---

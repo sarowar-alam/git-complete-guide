@@ -28,17 +28,25 @@ graph TD
 
 ## 3. Prerequisites
 
-- `git-lab-01` repo with several commits
 - Git Bash open
+- GitHub free account
+- GitHub CLI (`gh`) installed and authenticated
 
 ---
 
 ## 4. Setup
 
 ```bash
-cd ~/git-lab-01
-git switch main
-git pull origin main
+# Create a fresh repo with initial content
+mkdir ~/git-lab-08 && cd ~/git-lab-08
+git init
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html><body><h1>My App</h1></body></html>
+EOF
+git add index.html
+git commit -m "init: lab setup"
+gh repo create git-lab-08 --public --push --source=.
 ```
 
 ---
@@ -253,9 +261,14 @@ nothing to commit, working tree clean
 ## 9. Cleanup
 
 ```bash
+cd ~/git-lab-08
 git push origin main
 git stash clear
 git branch -D feature/nav 2>/dev/null || true
+
+# Delete the GitHub repo when done
+gh repo delete md-sarowar-alam/git-lab-08 --yes
+cd ~ && rm -rf git-lab-08
 ```
 
 ---

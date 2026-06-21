@@ -27,17 +27,20 @@ graph TD
 
 ## 3. Prerequisites
 
-- `git-lab-01` repo
 - Git Bash open
+- GitHub CLI (`gh`) installed and authenticated
 
 ---
 
 ## 4. Setup
 
 ```bash
-cd ~/git-lab-01
-git switch main
-git pull origin main
+# Create a fresh repo for this lab
+mkdir ~/git-lab-09 && cd ~/git-lab-09
+git init
+echo "# My Project" > README.md
+git add README.md
+git commit -m "init: lab setup"
 ```
 
 ---
@@ -262,9 +265,12 @@ bisect run success
 ## 9. Cleanup
 
 ```bash
+cd ~/git-lab-09
 git switch main
 git status
-# Should be clean
+
+# Remove local folder when done
+cd ~ && rm -rf git-lab-09
 ```
 
 ---

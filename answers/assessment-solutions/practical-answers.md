@@ -129,12 +129,12 @@ git stash pop
 ### S10 — Branch Protection for Public Repo
 
 For `main` on GitHub Free (public repo):
-- ✅ Require a pull request before merging (min 1 approval)
-- ✅ Dismiss stale pull request approvals when new commits are pushed
-- ✅ Require status checks to pass before merging (link CI)
-- ✅ Require branches to be up to date before merging
-- ✅ Prevent force pushes
-- ✅ Prevent branch deletion
+- ✓ Require a pull request before merging (min 1 approval)
+- ✓ Dismiss stale pull request approvals when new commits are pushed
+- ✓ Require status checks to pass before merging (link CI)
+- ✓ Require branches to be up to date before merging
+- ✓ Prevent force pushes
+- ✓ Prevent branch deletion
 - Optional: Require signed commits if team has GPG set up
 
 ---

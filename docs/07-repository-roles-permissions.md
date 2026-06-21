@@ -10,11 +10,11 @@ GitHub uses five repository-level roles. These apply to both personal and organi
 
 | Role | Read | Clone | Open Issues | Push Code | Merge PRs | Manage Settings | Delete Repo |
 |------|------|-------|-------------|-----------|-----------|-----------------|-------------|
-| **Read** | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Triage** | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Write** | ✅ | ✅ | ✅ | ✅ | ✅* | ❌ | ❌ |
-| **Maintain** | ✅ | ✅ | ✅ | ✅ | ✅ | Partial | ❌ |
-| **Admin** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Read** | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ |
+| **Triage** | ✓ | ✓ | ✓ | ✗ | ✗ | ✗ | ✗ |
+| **Write** | ✓ | ✓ | ✓ | ✓ | ✓* | ✗ | ✗ |
+| **Maintain** | ✓ | ✓ | ✓ | ✓ | ✓ | Partial | ✗ |
+| **Admin** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 *Write role can merge PRs unless branch protection rules restrict it.
 
@@ -79,11 +79,11 @@ GitLab uses a five-level system at both project (repo) and group level:
 
 | Role | Can push | Can merge | Can manage settings | Can delete |
 |------|----------|-----------|--------------------|-----------| 
-| **Guest** | ❌ | ❌ | ❌ | ❌ |
-| **Reporter** | ❌ | ❌ | ❌ | ❌ |
-| **Developer** | ✅ (non-protected) | ✅ (non-protected) | ❌ | ❌ |
-| **Maintainer** | ✅ | ✅ | ✅ | ❌ |
-| **Owner** | ✅ | ✅ | ✅ | ✅ |
+| **Guest** | ✗ | ✗ | ✗ | ✗ |
+| **Reporter** | ✗ | ✗ | ✗ | ✗ |
+| **Developer** | ✓ (non-protected) | ✓ (non-protected) | ✗ | ✗ |
+| **Maintainer** | ✓ | ✓ | ✓ | ✗ |
+| **Owner** | ✓ | ✓ | ✓ | ✓ |
 
 GitLab's **Developer** role is roughly equivalent to GitHub's **Write** role. GitLab's **Maintainer** maps roughly to GitHub's **Admin** (minus account-level settings).
 

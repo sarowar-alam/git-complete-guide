@@ -51,11 +51,11 @@ GitHub → Your repo → Settings → Danger Zone → Change visibility → Publ
 2. Click **Settings** → **Branches** → **Add branch ruleset** (or **Add rule** on older UI)
 3. Set **Branch name pattern:** `main`
 4. Enable the following:
-   - ✅ **Require a pull request before merging**
-   - ✅ **Required approvals:** 1
-   - ✅ **Dismiss stale reviews when new commits are pushed**
-   - ✅ **Block force pushes**
-   - ✅ **Restrict deletions**
+   - ✓ **Require a pull request before merging**
+   - ✓ **Required approvals:** 1
+   - ✓ **Dismiss stale reviews when new commits are pushed**
+   - ✓ **Block force pushes**
+   - ✓ **Restrict deletions**
 5. Click **Create** (or **Save changes**)
 
 > 📸 Screenshot: GitHub branch protection settings page with the rules checked

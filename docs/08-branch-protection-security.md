@@ -22,8 +22,8 @@ With protection: those things require deliberate override or are blocked entirel
 > **Important:** On GitHub Free, branch protection rules only work on **public repositories**. For private repos, you need GitHub Pro ($4/user/month) or GitHub Team.
 
 ```
-Public repo + free account = full branch protection ✅
-Private repo + free account = no branch protection ❌
+Public repo + free account = full branch protection ✓
+Private repo + free account = no branch protection ✗
 ```
 
 ---

@@ -321,11 +321,11 @@ Railway also supports GitHub-connected deployments just like Render — connect 
 
 | Platform | Free tier | Static sites | Node.js apps | Docker | Auto-deploy from Git |
 |----------|-----------|-------------|-------------|--------|---------------------|
-| Render | ✅ (static free forever, services free with limits) | ✅ | ✅ | ✅ | ✅ |
-| Railway | ✅ ($5 credit/month) | ✅ | ✅ | ✅ | ✅ |
-| Vercel | ✅ | ✅ (excellent) | ✅ (serverless) | ❌ | ✅ |
-| Netlify | ✅ | ✅ (excellent) | ❌ (functions only) | ❌ | ✅ |
-| Heroku | ❌ ($5/month min) | ✅ (with buildpack) | ✅ | ✅ | ✅ |
+| Render | ✓ (static free forever, services free with limits) | ✓ | ✓ | ✓ | ✓ |
+| Railway | ✓ ($5 credit/month) | ✓ | ✓ | ✓ | ✓ |
+| Vercel | ✓ | ✓ (excellent) | ✓ (serverless) | ✗ | ✓ |
+| Netlify | ✓ | ✓ (excellent) | ✗ (functions only) | ✗ | ✓ |
+| Heroku | ✗ ($5/month min) | ✓ (with buildpack) | ✓ | ✓ | ✓ |
 
 **Recommendation:**
 - Static HTML/CSS/JS site → **Render** (free) or **Heroku** (paid, more control)

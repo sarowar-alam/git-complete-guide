@@ -885,9 +885,9 @@ git reset --hard HEAD~3     # Back to Commit 1
 
 ```bash
 # Local Repository Only:
-- ✅ Changes local commit history
-- ✅ Safe if not pushed to remote
-- ❌ Dangerous if already pushed and others pulled
+- ✓ Changes local commit history
+- ✓ Safe if not pushed to remote
+- ✗ Dangerous if already pushed and others pulled
 
 # After Reset, Force Push Required (DANGER!):
 git push --force origin main
@@ -923,11 +923,11 @@ git commit -m "Revert: Rollback changes"
 
 ```bash
 # Safe for All Scenarios:
-- ✅ Preserves complete history
-- ✅ Safe for shared branches
-- ✅ Can be pushed without force
-- ✅ Transparent to team members
-- ✅ Can be reverted again if needed
+- ✓ Preserves complete history
+- ✓ Safe for shared branches
+- ✓ Can be pushed without force
+- ✓ Transparent to team members
+- ✓ Can be reverted again if needed
 
 # After Revert:
 git push origin main  # Normal push, no force needed
@@ -1096,11 +1096,11 @@ npm test  # or your test command
 
 | Situation | Command | Impact | Safe for Remote? |
 |-----------|---------|--------|------------------|
-| Undo last commit, keep changes | `git reset --soft HEAD~1` | Changes staged | ❌ No |
-| Undo last commit, discard changes | `git reset --hard HEAD~1` | Changes lost | ❌ No |
-| Undo last commit safely | `git revert HEAD` | New commit | ✅ Yes |
-| View old commit temporarily | `git checkout <commit>` | Detached HEAD | ✅ Yes |
-| Undo specific commit | `git revert <commit>` | New commit | ✅ Yes |
+| Undo last commit, keep changes | `git reset --soft HEAD~1` | Changes staged | ✗ No |
+| Undo last commit, discard changes | `git reset --hard HEAD~1` | Changes lost | ✗ No |
+| Undo last commit safely | `git revert HEAD` | New commit | ✓ Yes |
+| View old commit temporarily | `git checkout <commit>` | Detached HEAD | ✓ Yes |
+| Undo specific commit | `git revert <commit>` | New commit | ✓ Yes |
 | Recover lost commit | `git reflog` + `git reset` | Restore commit | Depends |
 
 ### Common Rollback Commands Summary
@@ -2490,11 +2490,11 @@ my-heroku-app/
 ```
 
 **Key Features of the Sample App:**
-- ✅ Express.js server with static file serving
-- ✅ Displays HTML page with embedded image
-- ✅ Uses `process.env.PORT` for Heroku compatibility
-- ✅ Properly configured Procfile for web dyno
-- ✅ Complete `.gitignore` for Node.js projects
+- ✓ Express.js server with static file serving
+- ✓ Displays HTML page with embedded image
+- ✓ Uses `process.env.PORT` for Heroku compatibility
+- ✓ Properly configured Procfile for web dyno
+- ✓ Complete `.gitignore` for Node.js projects
 
 **Repository Structure:**
 ```
@@ -3938,14 +3938,14 @@ heroku apps:destroy --app your-app-name --confirm your-app-name
 ```
 
 **What You'll Learn:**
-- ✅ Cloning and inspecting a Heroku-ready app
-- ✅ Testing locally before deployment
-- ✅ Creating and configuring Heroku apps
-- ✅ Deploying using Git push
-- ✅ Managing environment variables
-- ✅ Monitoring logs and app health
-- ✅ Rolling back deployments
-- ✅ Running commands in Heroku environment
+- ✓ Cloning and inspecting a Heroku-ready app
+- ✓ Testing locally before deployment
+- ✓ Creating and configuring Heroku apps
+- ✓ Deploying using Git push
+- ✓ Managing environment variables
+- ✓ Monitoring logs and app health
+- ✓ Rolling back deployments
+- ✓ Running commands in Heroku environment
 
 ---
 

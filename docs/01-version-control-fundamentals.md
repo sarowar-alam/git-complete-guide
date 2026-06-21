@@ -139,8 +139,8 @@ Here's how Git compares to the alternatives:
 
 | Feature | CVS | SVN | Mercurial | Perforce | Git |
 |---------|-----|-----|-----------|----------|-----|
-| Distributed | ❌ | ❌ | ✅ | ❌ | ✅ |
-| Offline work | ❌ | ❌ | ✅ | ❌ | ✅ |
+| Distributed | ✗ | ✗ | ✓ | ✗ | ✓ |
+| Offline work | ✗ | ✗ | ✓ | ✗ | ✓ |
 | Branching cost | Expensive | Moderate | Cheap | Expensive | Very cheap |
 | Binary files | Poor | Moderate | Poor | Excellent | Poor (use Git LFS) |
 | Speed | Slow | Moderate | Fast | Fast | Very fast |

@@ -2474,7 +2474,7 @@ gh pr review 123 --approve
 
 Heroku is a cloud platform that enables developers to deploy, manage, and scale applications easily using Git.
 
-**Practice Repository**: [my-heroku-app](https://github.com/sarowar-alam/my-heroku-app.git) - A sample application for Heroku deployment practice (private repo).
+**Practice Repository**: [my-heroku-app](https://github.com/md-sarowar-alam/my-heroku-app.git) - A sample application for Heroku deployment practice (private repo).
 
 > **Note**: The practice repository is private. You'll need to fork it or create your own application following the examples below.
 
@@ -2569,8 +2569,8 @@ heroku apps:info my-app
 # Verify remote was added
 git remote -v
 # Should show:
-# origin  https://github.com/sarowar-alam/my-heroku-app.git (fetch)
-# origin  https://github.com/sarowar-alam/my-heroku-app.git (push)
+# origin  https://github.com/md-sarowar-alam/my-heroku-app.git (fetch)
+# origin  https://github.com/md-sarowar-alam/my-heroku-app.git (push)
 # heroku  https://git.heroku.com/my-awesome-app.git (fetch)
 # heroku  https://git.heroku.com/my-awesome-app.git (push)
 
@@ -2606,7 +2606,7 @@ heroku logs --tail
 
 ```bash
 # Clone a sample Heroku app (private repo - requires authentication)
-git clone https://github.com/sarowar-alam/my-heroku-app.git
+git clone https://github.com/md-sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # Login to Heroku
@@ -2858,7 +2858,7 @@ Here's a step-by-step guide using the actual `my-heroku-app` repository:
 
 ```bash
 # Step 1: Clone the repository
-git clone https://github.com/sarowar-alam/my-heroku-app.git
+git clone https://github.com/md-sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # Step 2: Review the project structure
@@ -2897,7 +2897,7 @@ heroku create devops-batch09-myapp
 # Step 8: Verify remotes were added
 git remote -v
 # Should show:
-# origin  https://github.com/sarowar-alam/my-heroku-app.git
+# origin  https://github.com/md-sarowar-alam/my-heroku-app.git
 # heroku  https://git.heroku.com/devops-batch09-myapp.git
 
 # Step 9: Deploy to Heroku
@@ -3154,7 +3154,7 @@ heroku repo:purge_cache -a my-app
 
 ```bash
 # Clone your application
-git clone https://github.com/sarowar-alam/my-heroku-app.git
+git clone https://github.com/md-sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # Add Heroku remote (if not already added)
@@ -3752,7 +3752,7 @@ git clean -nd
 - **GitHub Repository**: https://github.com/sarowar-alam/git-complete-guide
 - **Issues & Discussions**: https://github.com/sarowar-alam/git-complete-guide/issues
 - **Fork This Repo**: https://github.com/sarowar-alam/git-complete-guide/fork
-- **Sample Heroku App**: https://github.com/sarowar-alam/my-heroku-app (Private - for deployment practice)
+- **Sample Heroku App**: https://github.com/md-sarowar-alam/my-heroku-app (Private - for deployment practice)
 
 ### Official Documentation
 - **Official Git Documentation**: https://git-scm.com/doc
@@ -3824,7 +3824,7 @@ git log --oneline
 # Click "Fork" button
 
 # 2. Clone your fork locally
-git clone https://github.com/YOUR_USERNAME/Git-Fundamentals.git
+git clone https://github.com/md-sarowar-alam/git-complete-guide.git
 cd Git-Fundamentals
 
 # 3. Add upstream remote
@@ -3859,7 +3859,7 @@ git push origin docs/improve-readme
 # Complete Heroku Deployment Exercise
 
 # 1. Clone the sample Heroku app
-git clone https://github.com/sarowar-alam/my-heroku-app.git
+git clone https://github.com/md-sarowar-alam/my-heroku-app.git
 cd my-heroku-app
 
 # 2. Inspect the files
@@ -3973,7 +3973,7 @@ We welcome contributions to improve this guide! Here's how:
 1. **Fork the repository**: [sarowar-alam/git-complete-guide](https://github.com/sarowar-alam/git-complete-guide)
 2. **Clone your fork**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Git-Fundamentals.git
+   git clone https://github.com/md-sarowar-alam/git-complete-guide.git
    cd Git-Fundamentals
    ```
 3. **Add upstream remote**:

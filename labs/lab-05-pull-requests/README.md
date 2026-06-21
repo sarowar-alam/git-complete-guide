@@ -48,7 +48,7 @@ You'll fork the main Git-Fundamentals repository for this lab.
 1. Go to: `https://github.com/sarowar-alam/git-complete-guide`
 2. Click **Fork** (top-right)
 3. Select your account as the destination
-4. GitHub creates: `github.com/YOUR_USERNAME/Git-Fundamentals`
+4. GitHub creates: `github.com/md-sarowar-alam/git-complete-guide`
 
 > 📸 Screenshot: Fork button on the repository page and the fork destination screen
 
@@ -56,12 +56,12 @@ You'll fork the main Git-Fundamentals repository for this lab.
 
 ```bash
 cd ~
-git clone https://github.com/YOUR_USERNAME/Git-Fundamentals.git git-lab-05
+git clone https://github.com/md-sarowar-alam/git-complete-guide.git git-lab-05
 cd git-lab-05
 
 git remote -v
-# origin  https://github.com/YOUR_USERNAME/Git-Fundamentals.git (fetch)
-# origin  https://github.com/YOUR_USERNAME/Git-Fundamentals.git (push)
+# origin  https://github.com/md-sarowar-alam/git-complete-guide.git (fetch)
+# origin  https://github.com/md-sarowar-alam/git-complete-guide.git (push)
 ```
 
 ### Task 3 — Add the Upstream Remote
@@ -70,8 +70,8 @@ git remote -v
 git remote add upstream https://github.com/sarowar-alam/git-complete-guide.git
 
 git remote -v
-# origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (fetch)
-# origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (push)
+# origin    https://github.com/md-sarowar-alam/git-complete-guide.git (fetch)
+# origin    https://github.com/md-sarowar-alam/git-complete-guide.git (push)
 # upstream  https://github.com/sarowar-alam/git-complete-guide.git (fetch)
 # upstream  https://github.com/sarowar-alam/git-complete-guide.git (push)
 ```
@@ -130,13 +130,13 @@ git push origin feature/add-my-note
 
 ### Task 8 — Open a Pull Request
 
-1. Go to `github.com/YOUR_USERNAME/Git-Fundamentals`
+1. Go to `github.com/md-sarowar-alam/git-complete-guide`
 2. GitHub shows a banner: **"Compare & pull request"** for `feature/add-my-note`
 3. Click it
 4. Set:
    - **Base repository:** `sarowar-alam/git-complete-guide`
    - **Base branch:** `main`
-   - **Head repository:** `YOUR_USERNAME/Git-Fundamentals`
+   - **Head repository:** `md-sarowar-alam/git-complete-guide`
    - **Compare branch:** `feature/add-my-note`
 5. Title: `docs: add personal git learning notes`
 6. Description: explain what you added and why
@@ -175,8 +175,8 @@ Also verify on GitHub that your PR is visible at:
 
 ```
 $ git remote -v
-origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (fetch)
-origin    https://github.com/YOUR_USERNAME/Git-Fundamentals.git (push)
+origin    https://github.com/md-sarowar-alam/git-complete-guide.git (fetch)
+origin    https://github.com/md-sarowar-alam/git-complete-guide.git (push)
 upstream  https://github.com/sarowar-alam/git-complete-guide.git (fetch)
 upstream  https://github.com/sarowar-alam/git-complete-guide.git (push)
 
@@ -190,7 +190,7 @@ abc123d (HEAD -> feature/add-my-note, origin/feature/add-my-note) docs: add pers
 ## 8. Troubleshooting
 
 **"Can't fork — fork already exists"**
-→ You already forked it. Go to `github.com/YOUR_USERNAME/Git-Fundamentals` directly.
+→ You already forked it. Go to `github.com/md-sarowar-alam/git-complete-guide` directly.
 
 **PR shows "Can't automatically merge"**
 → Your branch has conflicts with upstream. Run `git rebase upstream/main` on your feature branch, resolve conflicts, force-push with `git push --force-with-lease origin feature/add-my-note`.
@@ -210,6 +210,13 @@ git merge upstream/main
 git push origin main
 git branch -d feature/add-my-note
 git push origin --delete feature/add-my-note
+
+# Delete your fork from GitHub
+gh repo delete md-sarowar-alam/git-complete-guide --yes
+
+# Remove the local clone
+cd ~
+rm -rf git-lab-05
 ```
 
 ---

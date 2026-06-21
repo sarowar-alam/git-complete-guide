@@ -77,7 +77,7 @@ You should see:
 ```
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: At least 1 approving review is required by reviewers with write access.
-To https://github.com/YOUR_USERNAME/git-lab-01.git
+To https://github.com/md-sarowar-alam/git-lab-01.git
  ! [remote rejected] main -> main (protected branch hook declined)
 error: failed to push some refs
 ```
@@ -214,7 +214,7 @@ git push origin --delete feature/readme-update
 1. Add a `CODEOWNERS` file to your repo:
    ```
    # CODEOWNERS
-   /README.md  @YOUR_USERNAME
+   /README.md  @md-sarowar-alam
    ```
 2. Push it to a feature branch, merge via PR
 3. Open a new PR that touches `README.md` — verify that you're automatically added as a required reviewer

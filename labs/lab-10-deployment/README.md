@@ -64,7 +64,7 @@ gh repo create company-website --public --push --source=.
 1. Create `company-website` repo manually on GitHub (empty, public)
 2. Then:
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/company-website.git
+git remote add origin https://github.com/md-sarowar-alam/company-website.git
 git push -u origin main
 ```
 
@@ -178,7 +178,7 @@ git push origin main
 $ git push origin main
 Enumerating objects: 5, done.
 ...
-To https://github.com/YOUR_USERNAME/company-website.git
+To https://github.com/md-sarowar-alam/company-website.git
    abc123d..def456e  main -> main
 
 # Render dashboard shows:
@@ -207,7 +207,20 @@ URL: https://company-website-abc1.onrender.com
 
 ## 9. Cleanup
 
-The site can stay live on Render's free tier. To remove it:
+```bash
+# Delete the company-website GitHub repo
+gh repo delete md-sarowar-alam/company-website --yes
+
+# If you completed the challenge task, delete that repo too
+gh repo delete md-sarowar-alam/ecommerce-app --yes
+
+# Remove local folders
+cd sample-repositories
+rm -rf company-website/.git
+rm -rf ecommerce-app/.git
+```
+
+To remove from Render:
 1. Render dashboard → your service → **Settings** → **Delete Service**
 
 ---

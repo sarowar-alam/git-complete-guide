@@ -123,10 +123,10 @@ git log --oneline
 3. Run:
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/git-lab-01.git
+git remote add origin https://github.com/md-sarowar-alam/git-lab-01.git
 git remote -v
-# origin  https://github.com/YOUR_USERNAME/git-lab-01.git (fetch)
-# origin  https://github.com/YOUR_USERNAME/git-lab-01.git (push)
+# origin  https://github.com/md-sarowar-alam/git-lab-01.git (fetch)
+# origin  https://github.com/md-sarowar-alam/git-lab-01.git (push)
 
 git push -u origin main
 ```
@@ -160,8 +160,8 @@ def456e (HEAD -> main, origin/main) chore: add .gitignore
 abc123d docs: add initial README
 
 $ git remote -v
-origin  https://github.com/YOUR_USERNAME/git-lab-01.git (fetch)
-origin  https://github.com/YOUR_USERNAME/git-lab-01.git (push)
+origin  https://github.com/md-sarowar-alam/git-lab-01.git (fetch)
+origin  https://github.com/md-sarowar-alam/git-lab-01.git (push)
 
 $ git status
 On branch main
@@ -187,10 +187,12 @@ nothing to commit, working tree clean
 ## 9. Cleanup
 
 ```bash
-# The remote repo stays on GitHub for future labs
-# To remove the local folder:
+# Remove the local folder
 cd ~
 rm -rf git-lab-01
+
+# Delete the GitHub repo when you are done with all labs
+gh repo delete md-sarowar-alam/git-lab-01 --yes
 ```
 
 ---

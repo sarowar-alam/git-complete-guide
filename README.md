@@ -4001,7 +4001,7 @@ We welcome contributions to improve this guide! Here's how:
 
 ## 🧑‍💻 Author
 
-**Md. Sarowar Alam**  
+**MD Sarowar Alam**  
 Lead DevOps Engineer, Hogarth Worldwide  
 📧 Email: sarowar@hotmail.com  
 🔗 LinkedIn: [linkedin.com/in/sarowar](https://www.linkedin.com/in/sarowar/)  
@@ -4015,4 +4015,4 @@ This guide is provided as educational material for DevOps engineers.
 
 ---
 
-**© 2026 Md. Sarowar Alam. All rights reserved.**
+**© 2026 MD Sarowar Alam. All rights reserved.**

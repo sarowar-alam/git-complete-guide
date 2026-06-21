@@ -144,48 +144,151 @@ git push origin main
 
 ---
 
-## Heroku (Reference)
+## Heroku
 
-Heroku was the original platform that popularised git-push deployment. Since November 2022, it no longer has a free tier — the cheapest plan is $5/month (Eco dynos).
+Heroku pioneered git-push deployment. It no longer has a free tier since November 2022 — the minimum is **$5/month** (Eco dynos). It is included here as a fully supported option alongside Render.
 
-> **Free alternative:** Use Railway (https://railway.app) — $5 free credit monthly, no credit card required, very similar workflow to Heroku.
+> Install the Heroku CLI: https://devcenter.heroku.com/articles/heroku-cli
 
-**How Heroku deployment works (for reference):**
+### Deploy a Static Site (company-website)
+
+Heroku doesn't serve raw static files by default. Use the official `heroku-buildpack-static` buildpack, which needs a `static.json` config file.
+
+**Step 1 — Add `static.json` to the repo**
 
 ```bash
-# Install Heroku CLI
-# https://devcenter.heroku.com/articles/heroku-cli
-
-# Login
-heroku login
-
-# Create an app
-heroku create my-app-name
-
-# Heroku adds a remote called heroku
-git remote -v
-# heroku  https://git.heroku.com/my-app-name.git (fetch)
-# heroku  https://git.heroku.com/my-app-name.git (push)
-
-# Deploy by pushing to the heroku remote
-git push heroku main
-
-# Set environment variables
-heroku config:set NODE_ENV=production
-heroku config:set DATABASE_URL=postgres://...
-
-# View logs
-heroku logs --tail
-
-# Open the live app
-heroku open
-
-# Rollback to previous release
-heroku releases
-heroku rollback v12
+cd sample-repositories/company-website
+cat > static.json << 'EOF'
+{
+  "root": ".",
+  "clean_urls": true,
+  "error_page": "404.html"
+}
+EOF
+git add static.json
+git commit -m "chore: add Heroku static site config"
+git push origin main
 ```
 
-The key Heroku concept: `git push heroku main` sends your code to Heroku's Git server, which triggers a build using a **buildpack** (auto-detected for Node.js, Python, Ruby, etc.) and deploys the result.
+**Step 2 — Create the Heroku app**
+
+```bash
+heroku login
+
+heroku create company-website-demo
+# Heroku adds a 'heroku' remote automatically
+
+git remote -v
+# heroku  https://git.heroku.com/company-website-demo.git (fetch)
+# heroku  https://git.heroku.com/company-website-demo.git (push)
+# origin  https://github.com/md-sarowar-alam/company-website.git (fetch)
+```
+
+**Step 3 — Set the buildpack**
+
+```bash
+heroku buildpacks:set https://github.com/heroku/heroku-buildpack-static
+```
+
+**Step 4 — Deploy**
+
+```bash
+git push heroku main
+```
+
+Heroku builds the app and gives you a live URL:
+```
+remote: -----> Launching...
+remote:        https://company-website-demo.herokuapp.com/ deployed to Heroku
+```
+
+> 📸 Screenshot: Heroku dashboard showing the app URL and activity log
+
+**Step 5 — Make a change and redeploy**
+
+```bash
+echo "<!-- updated -->" >> index.html
+git add index.html
+git commit -m "chore: trigger redeploy"
+git push heroku main
+```
+
+### Deploy a Node.js App (ecommerce-app)
+
+**Step 1 — Add a `Procfile`**
+
+Heroku needs a `Procfile` to know how to start your app:
+
+```bash
+cd sample-repositories/ecommerce-app
+echo "web: node app.js" > Procfile
+git add Procfile
+git commit -m "chore: add Heroku Procfile"
+git push origin main
+```
+
+**Step 2 — Create the app and deploy**
+
+```bash
+heroku create ecommerce-app-demo
+
+git remote -v
+# heroku  https://git.heroku.com/ecommerce-app-demo.git (fetch)
+
+git push heroku main
+```
+
+**Step 3 — Set environment variables**
+
+```bash
+heroku config:set NODE_ENV=production
+heroku config:set PORT=3000
+```
+
+Access them in your code exactly as with Render:
+```javascript
+const port = process.env.PORT || 3000;
+```
+
+**Step 4 — Verify**
+
+```bash
+heroku open
+heroku logs --tail
+```
+
+### Rollback on Heroku
+
+```bash
+# List all releases
+heroku releases
+# v1  Deploy abc123  2025-01-01
+# v2  Deploy def456  2025-01-02  ← broken
+# v3  Set NODE_ENV   2025-01-02
+
+# Roll back to v1
+heroku rollback v1
+
+# Or roll back one step
+heroku rollback
+```
+
+Heroku keeps a full deployment history. Rollback is instant — it re-activates a previous slug without a rebuild.
+
+You can also rollback via Git and redeploy:
+
+```bash
+git revert HEAD
+git push heroku main
+```
+
+### Cleanup (Heroku)
+
+```bash
+# Delete the app (stops billing immediately)
+heroku apps:destroy company-website-demo --confirm company-website-demo
+heroku apps:destroy ecommerce-app-demo --confirm ecommerce-app-demo
+```
 
 ---
 
@@ -222,22 +325,22 @@ Railway also supports GitHub-connected deployments just like Render — connect 
 | Railway | ✅ ($5 credit/month) | ✅ | ✅ | ✅ | ✅ |
 | Vercel | ✅ | ✅ (excellent) | ✅ (serverless) | ❌ | ✅ |
 | Netlify | ✅ | ✅ (excellent) | ❌ (functions only) | ❌ | ✅ |
-| Heroku | ❌ ($5/month min) | ❌ | ✅ | ✅ | ✅ |
+| Heroku | ❌ ($5/month min) | ✅ (with buildpack) | ✅ | ✅ | ✅ |
 
 **Recommendation:**
-- Static HTML/CSS/JS site → **Render** or **Netlify**
-- Node.js / Express app → **Render** or **Railway**
-- Already on Heroku → consider migrating to **Railway** (near-identical workflow)
+- Static HTML/CSS/JS site → **Render** (free) or **Heroku** (paid, more control)
+- Node.js / Express app → **Render** (free) or **Heroku** (paid, mature ecosystem)
+- Already on Heroku → consider migrating to **Railway** (near-identical workflow, free tier)
 
 ---
 
 ## Knowledge Check
 
 1. What triggers an automatic redeployment on Render?
-2. Where do you set environment variables for a Render app — and why not in a file?
-3. You deployed a broken version. What are two ways to roll back?
-4. Why does Heroku no longer appear in the lab exercises?
-5. You're deploying a Node.js app. Render asks for a "Build Command" and "Start Command". What should each one be?
+2. Where do you set environment variables for a Render or Heroku app — and why not in a file?
+3. You deployed a broken version. What are two ways to roll back on each platform?
+4. What extra file does Heroku require to deploy a Node.js app that Render does not?
+5. You're deploying a static HTML site to Heroku. What buildpack and config file do you need?
 
 ---
 

@@ -1,8 +1,12 @@
-# Lab 10 — Deploy to Render
+# Lab 10 — Deploying with Git
 
 ## 1. Objective
 
-Deploy the `company-website` (static HTML/CSS/JS) to Render using GitHub as the source. Every push to `main` automatically triggers a new deployment. Then tackle the challenge task to deploy the Node.js `ecommerce-app`.
+Deploy the `company-website` (static HTML/CSS/JS) to a live URL using GitHub as the source. Every push to `main` automatically triggers a new deployment.
+
+You can complete this lab with either platform:
+- **Track A — Render** (free, no credit card)
+- **Track B — Heroku** ($5/month, more industry-standard)
 
 ---
 
@@ -13,13 +17,16 @@ sequenceDiagram
     participant Local as Git Bash
     participant GH as GitHub
     participant Render as Render.com
+    participant Heroku as Heroku
     participant Browser as Live URL
 
     Local->>GH: git push origin main
-    GH->>Render: Webhook: new push detected
-    Render->>GH: Pull latest code
-    Render->>Render: Build (copy static files)
+    GH->>Render: Webhook (Track A)
     Render->>Browser: Site live at .onrender.com
+
+    Local->>Heroku: git push heroku main (Track B)
+    Heroku->>Heroku: Build with buildpack
+    Heroku->>Browser: Site live at .herokuapp.com
 ```
 
 ---
@@ -28,8 +35,9 @@ sequenceDiagram
 
 - `sample-repositories/company-website/` folder from this repo
 - GitHub free account
-- [Render free account](https://render.com/) — no credit card required
 - Git Bash open
+- **Track A:** [Render free account](https://render.com/) — no credit card required
+- **Track B:** [Heroku account](https://heroku.com/) ($5/month) + [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) installed
 
 ---
 
@@ -155,6 +163,83 @@ In a real Node.js app, you'd access this with `process.env.SITE_ENV`.
 
 ---
 
+## 5B. Track B — Heroku
+
+> Skip this section if you completed Track A. You can also do both.
+
+### Task 1B — Add Heroku config files
+
+```bash
+cd sample-repositories/company-website
+
+# Add static.json — tells Heroku's static buildpack where to find files
+cat > static.json << 'EOF'
+{
+  "root": ".",
+  "clean_urls": true
+}
+EOF
+
+git add static.json
+git commit -m "chore: add Heroku static site config"
+git push origin main
+```
+
+### Task 2B — Create a Heroku app
+
+```bash
+heroku login
+heroku create company-website-demo
+
+# Verify the heroku remote was added
+git remote -v
+# heroku  https://git.heroku.com/company-website-demo.git (fetch)
+# origin  https://github.com/md-sarowar-alam/company-website.git (fetch)
+```
+
+### Task 3B — Set buildpack and deploy
+
+```bash
+heroku buildpacks:set https://github.com/heroku/heroku-buildpack-static
+
+git push heroku main
+```
+
+Heroku builds and deploys. Your site is live at:
+```
+https://company-website-demo.herokuapp.com
+```
+
+> 📸 Screenshot: Heroku activity log showing the deploy completed
+
+### Task 4B — Push a change
+
+```bash
+echo "<!-- heroku test -->" >> index.html
+git add index.html
+git commit -m "chore: test Heroku auto-deploy"
+git push heroku main
+```
+
+Heroku rebuilds and redeploys automatically.
+
+### Task 5B — Roll back
+
+```bash
+# View release history
+heroku releases
+
+# Roll back one step
+heroku rollback
+
+# Roll back to a specific version
+heroku rollback v2
+```
+
+> 📸 Screenshot: `heroku releases` output showing version list
+
+---
+
 ## 6. Validation
 
 ```bash
@@ -207,21 +292,26 @@ URL: https://company-website-abc1.onrender.com
 
 ## 9. Cleanup
 
+**Track A — Render:**
+1. Render dashboard → your service → **Settings** → **Delete Service**
+
+**Track B — Heroku:**
 ```bash
-# Delete the company-website GitHub repo
+heroku apps:destroy company-website-demo --confirm company-website-demo
+```
+
+**Both tracks — GitHub repos:**
+```bash
 gh repo delete md-sarowar-alam/company-website --yes
 
 # If you completed the challenge task, delete that repo too
 gh repo delete md-sarowar-alam/ecommerce-app --yes
 
-# Remove local folders
+# Remove the .git folders from the sample-repositories copies
 cd sample-repositories
 rm -rf company-website/.git
 rm -rf ecommerce-app/.git
 ```
-
-To remove from Render:
-1. Render dashboard → your service → **Settings** → **Delete Service**
 
 ---
 
@@ -232,17 +322,16 @@ To remove from Render:
 ```bash
 cd sample-repositories/ecommerce-app
 
-# Create its own GitHub repo
 git init
 git add .
 git commit -m "feat: initial ecommerce app"
 gh repo create ecommerce-app --public --push --source=.
 ```
 
-On Render:
-1. **New +** → **Web Service**
-2. Select `ecommerce-app`
-3. Configure:
+**Option A — Render Web Service:**
+
+1. Render → **New +** → **Web Service** → select `ecommerce-app`
+2. Configure:
 
 | Setting | Value |
 |---------|-------|
@@ -250,13 +339,29 @@ On Render:
 | Build command | `npm install` |
 | Start command | `node app.js` |
 
-4. Under **Environment Variables**, add:
-   - `PORT` = `3000`
-   - `NODE_ENV` = `production`
+3. Add env vars: `PORT` = `3000`, `NODE_ENV` = `production`
+4. Deploy and test: `curl https://your-app.onrender.com/products`
 
-5. Deploy and open the live URL
+**Option B — Heroku Web Service:**
 
-**Note:** Free tier web services spin down after 15 minutes of inactivity. The first request after spin-down takes ~30 seconds (cold start).
+```bash
+cd sample-repositories/ecommerce-app
+
+# Add Procfile
+echo "web: node app.js" > Procfile
+git add Procfile
+git commit -m "chore: add Heroku Procfile"
+git push origin main
+
+heroku create ecommerce-app-demo
+git push heroku main
+heroku config:set NODE_ENV=production PORT=3000
+heroku open
+```
+
+Test: `curl https://ecommerce-app-demo.herokuapp.com/products`
+
+**Note:** On both platforms, free/low-cost tiers may have cold-start delays after inactivity.
 
 ---
 

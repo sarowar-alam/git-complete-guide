@@ -28,7 +28,6 @@ graph TD
 ## 3. Prerequisites
 
 - Git Bash open
-- GitHub CLI (`gh`) installed and authenticated
 
 ---
 

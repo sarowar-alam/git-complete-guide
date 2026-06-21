@@ -232,12 +232,16 @@ First stable release
 
 ## 9. Cleanup
 
-Tags are permanent references — don't delete them unless intentional:
-
 ```bash
-# If you need to delete a tag:
-git tag -d v0.0.1                    # local
-git push origin --delete v0.0.1     # remote
+cd ~/git-lab-07
+
+# Delete specific tags if needed:
+git tag -d v0.0.1 2>/dev/null || true
+git push origin --delete v0.0.1 2>/dev/null || true
+
+# Delete the GitHub repo when done
+gh repo delete md-sarowar-alam/git-lab-07 --yes
+cd ~ && rm -rf git-lab-07
 ```
 
 ---

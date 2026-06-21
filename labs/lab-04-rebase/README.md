@@ -52,7 +52,11 @@ gitGraph
 mkdir ~/git-lab-04 && cd ~/git-lab-04
 git init
 echo "# My Project" > README.md
-git add README.md
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html><body><h1>My App</h1></body></html>
+EOF
+git add .
 git commit -m "init: lab setup"
 gh repo create git-lab-04 --public --push --source=.
 ```

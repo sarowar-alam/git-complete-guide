@@ -1,0 +1,42 @@
+%% Branching Strategies — GitFlow vs GitHub Flow vs Trunk-Based
+%% Paste at https://mermaid.live to render
+
+gitGraph LR:
+   commit id: "init"
+   commit id: "v0.1"
+
+   branch develop
+   checkout develop
+   commit id: "setup"
+
+   branch feature/login
+   checkout feature/login
+   commit id: "login form"
+   commit id: "login logic"
+
+   checkout develop
+   merge feature/login id: "merge login"
+
+   branch feature/search
+   checkout feature/search
+   commit id: "search UI"
+
+   checkout develop
+   merge feature/search id: "merge search"
+
+   branch release/v1.0
+   checkout release/v1.0
+   commit id: "bump version"
+
+   checkout main
+   merge release/v1.0 id: "v1.0" tag: "v1.0.0"
+
+   checkout develop
+   merge release/v1.0 id: "sync develop"
+
+   checkout main
+   branch hotfix/crash
+   checkout hotfix/crash
+   commit id: "fix crash"
+   checkout main
+   merge hotfix/crash id: "hotfix merged" tag: "v1.0.1"

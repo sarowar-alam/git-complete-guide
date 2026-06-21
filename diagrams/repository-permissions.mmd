@@ -1,0 +1,23 @@
+%% GitHub Repository Role Hierarchy
+%% Paste at https://mermaid.live to render
+
+graph TD
+    Owner["👑 Owner\nFull control\nBilling, delete repo"]
+    Admin["🔧 Admin\nSettings, branch rules\nManage collaborators"]
+    Maintain["🔑 Maintain\nPush to protected branches\nManage webhooks"]
+    Write["✏️ Write (Developer)\nPush code\nCreate & merge PRs"]
+    Triage["📋 Triage\nManage issues & PRs\nNo code push"]
+    Read["👁️ Read\nView & clone\nOpen issues"]
+
+    Owner --> Admin
+    Admin --> Maintain
+    Maintain --> Write
+    Write --> Triage
+    Triage --> Read
+
+    style Owner fill:#f3e5f5,stroke:#9C27B0
+    style Admin fill:#fce4ec,stroke:#E91E63
+    style Maintain fill:#fff3e0,stroke:#FF9800
+    style Write fill:#e8f5e9,stroke:#4CAF50
+    style Triage fill:#e3f2fd,stroke:#2196F3
+    style Read fill:#f5f5f5,stroke:#9E9E9E

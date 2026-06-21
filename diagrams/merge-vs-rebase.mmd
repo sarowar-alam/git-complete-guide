@@ -1,0 +1,33 @@
+%% Merge vs Rebase — Visual comparison
+%% Paste at https://mermaid.live to render
+
+%% --- Scenario before any integration ---
+%% main:    A -- B -- C -- D
+%% feature:          \-- E -- F
+
+%% --- After MERGE ---
+%% main:    A -- B -- C -- D ----------- M (merge commit)
+%% feature:          \-- E -- F -------/
+
+%% --- After REBASE ---
+%% main:    A -- B -- C -- D
+%% feature:                \-- E' -- F' (replayed on top of D)
+
+graph TD
+    subgraph "Before"
+        A1[A] --> B1[B] --> C1[C] --> D1[D]
+        C1 --> E1[E] --> F1[F]
+    end
+
+    subgraph "After MERGE (preserves history)"
+        A2[A] --> B2[B] --> C2[C] --> D2[D] --> M["M\nmerge commit"]
+        C2 --> E2[E] --> F2[F] --> M
+    end
+
+    subgraph "After REBASE (linear history)"
+        A3[A] --> B3[B] --> C3[C] --> D3[D] --> E3["E'\n(replayed)"] --> F3["F'\n(replayed)"]
+    end
+
+    style M fill:#fce4ec,stroke:#E91E63
+    style E3 fill:#e8f5e9,stroke:#4CAF50
+    style F3 fill:#e8f5e9,stroke:#4CAF50

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce App</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #f5f5f5; color: #333; }
+    header { background: #1a1a2e; color: white; padding: 20px 40px; }
+    header h1 { font-size: 1.5rem; }
+    main { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+    .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,.1); }
+    h2 { margin-bottom: 16px; color: #1a1a2e; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; text-align: left; border-bottom: 1px solid #eee; }
+    th { background: #f9f9f9; font-weight: 600; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }
+    .badge-software { background: #e3f2fd; color: #1565c0; }
+    .badge-tools { background: #e8f5e9; color: #2e7d32; }
+    .badge-addons { background: #fff3e0; color: #e65100; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ecommerce App — Git Practice Project</h1>
+  </header>
+  <main>
+    <div class="card">
+      <h2>Products</h2>
+      <table id="products-table">
+        <thead>
+          <tr><th>ID</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th></tr>
+        </thead>
+        <tbody id="products-body">
+          <tr><td colspan="5">Loading...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h2>API Endpoints</h2>
+      <table>
+        <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>GET</td><td>/products</td><td>List all products</td></tr>
+          <tr><td>GET</td><td>/products/:id</td><td>Get product by ID</td></tr>
+          <tr><td>POST</td><td>/products</td><td>Create product</td></tr>
+          <tr><td>GET</td><td>/orders</td><td>List all orders</td></tr>
+          <tr><td>POST</td><td>/orders</td><td>Create order</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script>
+    fetch('/products')
+      .then(r => r.json())
+      .then(products => {
+        const tbody = document.getElementById('products-body');
+        tbody.innerHTML = products.map(p => `
+          <tr>
+            <td>${p.id}</td>
+            <td>${p.name}</td>
+            <td><span class="badge badge-${p.category}">${p.category}</span></td>
+            <td>$${p.price}</td>
+            <td>${p.stock}</td>
+          </tr>
+        `).join('');
+      })
+      .catch(() => {
+        document.getElementById('products-body').innerHTML =
+          '<tr><td colspan="5">Start the server with: node app.js</td></tr>';
+      });
+  </script>
+</body>
+</html>

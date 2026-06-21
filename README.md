@@ -1,33 +1,145 @@
-# Git Fundamentals Guide for DevOps Engineers
-# change to check in local. remote and upstream 
+# Git Advanced Concepts
 
-> A comprehensive guide covering Git basics to advanced concepts for fresh DevOps engineers.
+> Everything you need to go from understanding version control to deploying real projects with Git — hands-on, practical, and straight to the point.
 
-**Repository**: [md-sarowar-alam/Git-Fundamentals](https://github.com/md-sarowar-alam/Git-Fundamentals)  
-**Clone URL (HTTPS)**: `https://github.com/md-sarowar-alam/Git-Fundamentals.git`  
-**Clone URL (SSH)**: `git@github.com:md-sarowar-alam/Git-Fundamentals.git`
+[![GitHub repo](https://img.shields.io/badge/GitHub-Git--Fundamentals-blue?logo=github)](https://github.com/md-sarowar-alam/Git-Fundamentals)
+[![Platform](https://img.shields.io/badge/Platform-GitHub%20Free-green)](https://github.com)
+[![Shell](https://img.shields.io/badge/Shell-Git%20Bash-orange)](https://git-scm.com/downloads)
+[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
-## Table of Contents ------------------
-- [Introduction to Git](#introduction-to-git)
-- [Installing Git](#installing-git)
-- [Installing GitHub CLI (gh)](#installing-github-cli-gh)
-- [Creating a Git Repository](#creating-a-git-repository)
-  - [Creating from GUI](#creating-from-gui)
-  - [Creating from Command Line](#creating-from-command-line)
-- [Cloning Repositories](#cloning-repositories)
-- [Git Authentication](#git-authentication)
-  - [HTTPS Authentication](#https-authentication)
-  - [SSH Authentication](#ssh-authentication)
-- [Basic Git Operations](#basic-git-operations)
-  - [Git Commit Workflow](#git-commit-workflow)
-  - [Viewing History](#viewing-history)
-- [Rolling Back Commits](#rolling-back-commits)
-  - [Reset vs Revert](#reset-vs-revert)
-  - [Rollback Scenarios](#rollback-scenarios)
-  - [Recovery from Mistakes](#recovery-from-mistakes)
-- [Git Branching](#git-branching)
-  - [Creating Branches](#creating-branches)
-  - [Switching Branches](#switching-branches)
+**Clone this repo:**
+```bash
+git clone https://github.com/md-sarowar-alam/Git-Fundamentals.git
+cd Git-Fundamentals
+```
+
+---
+
+## What You'll Work Through
+
+This repository takes you from version control fundamentals all the way to deploying projects with Git. Every topic comes with documentation, a hands-on lab, and exercises — no fluff, just things you'll actually use.
+
+---
+
+## Modules
+
+| # | Topic | Doc | Lab |
+|---|-------|-----|-----|
+| 01 | Version Control Fundamentals | [Read →](docs/01-version-control-fundamentals.md) | [Lab →](labs/lab-01-version-control/README.md) |
+| 02 | Git Architecture & Internals | [Read →](docs/02-git-architecture.md) | — |
+| 03 | Git Branching | [Read →](docs/03-git-branching.md) | [Lab →](labs/lab-02-branching/README.md) |
+| 04 | Branching Strategies | [Read →](docs/04-branching-strategies.md) | — |
+| 05 | Merging & Rebasing | [Read →](docs/05-merging-and-rebasing.md) | [Lab →](labs/lab-03-merge-conflicts/README.md) · [Lab →](labs/lab-04-rebase/README.md) |
+| 06 | Repository Collaboration | [Read →](docs/06-repository-collaboration.md) | [Lab →](labs/lab-05-pull-requests/README.md) |
+| 07 | Repository Roles & Permissions | [Read →](docs/07-repository-roles-permissions.md) | — |
+| 08 | Branch Protection & Security | [Read →](docs/08-branch-protection-security.md) | [Lab →](labs/lab-06-branch-protection/README.md) |
+| 09 | Tags & Releases | [Read →](docs/09-tags-and-releases.md) | [Lab →](labs/lab-07-tags-releases/README.md) |
+| 10 | Advanced Git Operations | [Read →](docs/10-advanced-git-operations.md) | [Lab →](labs/lab-08-stash-reset-revert/README.md) |
+| 11 | History Management | [Read →](docs/11-history-management.md) | [Lab →](labs/lab-09-history-recovery/README.md) |
+| 12 | Git Best Practices | [Read →](docs/12-git-best-practices.md) | — |
+| 13 | Deploying with Git | [Read →](docs/13-deployment.md) | [Lab →](labs/lab-10-deployment/README.md) |
+
+---
+
+## Repository Structure
+
+```
+Git-Fundamentals/
+│
+├── docs/               # All 13 topic guides + glossary
+├── diagrams/           # Mermaid diagram source files
+├── labs/               # 10 hands-on labs (lab-01 → lab-10)
+├── exercises/          # beginner / intermediate / advanced exercises
+├── mini-projects/      # 3 end-to-end projects
+├── sample-repositories/# ecommerce-app · company-website · microservice-platform
+├── assessments/        # Quiz (50 MCQs) · Practical · Interview questions
+├── answers/            # All answer keys (check your work here)
+└── reference-guide/    # Lesson plan · Teaching notes · Demo guide
+```
+
+---
+
+## Quick Start
+
+**What you need:**
+- [Git for Windows](https://git-scm.com/download/win) — use Git Bash for all commands
+- [GitHub free account](https://github.com/signup)
+- [VS Code](https://code.visualstudio.com/) — recommended editor
+- [Render account](https://render.com/) — free, needed for lab-10 only
+- Node.js v18+ — needed for lab-10 challenge task only
+
+**Start here:**
+```bash
+# 1. Open Git Bash
+# 2. Check Git is installed
+git --version
+
+# 3. Configure your identity (one-time setup)
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+# 4. Open the first doc
+# → docs/01-version-control-fundamentals.md
+```
+
+---
+
+## Labs at a Glance
+
+| Lab | Topic | Shell | Needs Internet? |
+|-----|-------|-------|----------------|
+| lab-01 | First commit & VCS comparison | Git Bash | No |
+| lab-02 | Branching (create/switch/backup/merge) | Git Bash | No |
+| lab-03 | Merge conflicts & resolution | Git Bash | No |
+| lab-04 | Rebase a feature branch onto main | Git Bash | No |
+| lab-05 | Fork → upstream sync → pull request | Git Bash | Yes (GitHub) |
+| lab-06 | Branch protection rules | Git Bash | Yes (GitHub) |
+| lab-07 | Tags & GitHub releases | Git Bash | Yes (GitHub) |
+| lab-08 | Stash, reset, revert | Git Bash | No |
+| lab-09 | Reflog & bisect (history recovery) | Git Bash | No |
+| lab-10 | Deploy to Render | Git Bash | Yes (GitHub + Render) |
+
+---
+
+## Exercises
+
+| Level | Exercises |
+|-------|-----------|
+| [Beginner](exercises/beginner/) | Init & commit · Branching basics · Simple merge |
+| [Intermediate](exercises/intermediate/) | Conflict resolution · Rebase workflow · Fork + PR flow |
+| [Advanced](exercises/advanced/) | Interactive rebase · Cherry-pick · Bisect debugging |
+
+---
+
+## Sample Repositories
+
+Three real-looking projects to practice branching, merging, and deployment on:
+
+| Repo | Stack | Run Locally |
+|------|-------|-------------|
+| [ecommerce-app](sample-repositories/ecommerce-app/) | Node.js / Express | `npm install && node app.js` |
+| [company-website](sample-repositories/company-website/) | HTML / CSS / JS | Open `index.html` in browser |
+| [microservice-platform](sample-repositories/microservice-platform/) | Docker / Node.js | `docker-compose up` |
+
+---
+
+## Assessment
+
+- [Quiz — 50 Questions](assessments/quiz.md)
+- [Practical Assessment](assessments/practical-assessment.md)
+- [Interview Questions](assessments/interview-questions.md)
+- [All Answer Keys](answers/)
+
+---
+
+## Reference
+
+- [Glossary](docs/glossary.md) — Git terms A to Z
+- [Diagrams](diagrams/) — Mermaid source files for all workflow diagrams
+
+---
+
+*Built for the MasteringDevOps programme. All commands use Git Bash on Windows 11.*
   - [Merging Branches](#merging-branches)
   - [Branching Strategies](#branching-strategies)
 - [Forking Workflow](#forking-workflow)

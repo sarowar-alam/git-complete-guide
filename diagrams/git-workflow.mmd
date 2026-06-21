@@ -1,0 +1,26 @@
+%% Git Workflow — Working Directory to Remote
+%% Paste at https://mermaid.live to render
+
+graph LR
+    subgraph "Your Machine"
+        WD["📁 Working Directory\n(your files)"]
+        SA["📋 Staging Area\ngit add"]
+        LR["🗄️ Local Repository\ngit commit"]
+    end
+
+    subgraph "Remote (GitHub)"
+        RR["☁️ Remote Repository\ngithub.com/you/repo"]
+    end
+
+    WD -->|"git add ."| SA
+    SA -->|"git commit -m '...'"| LR
+    LR -->|"git push origin main"| RR
+
+    RR -->|"git fetch origin"| LR
+    RR -->|"git pull origin main"| WD
+    LR -->|"git checkout branch"| WD
+
+    style WD fill:#e8f4f8,stroke:#2196F3
+    style SA fill:#fff3e0,stroke:#FF9800
+    style LR fill:#e8f5e9,stroke:#4CAF50
+    style RR fill:#fce4ec,stroke:#E91E63

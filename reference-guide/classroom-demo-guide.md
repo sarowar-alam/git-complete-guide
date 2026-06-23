@@ -1,4 +1,4 @@
-# Classroom Demo Guide
+# Demo Guide
 
 Ready-to-run demo scripts. Each demo can run independently. All commands use Git Bash.
 
@@ -12,7 +12,7 @@ mkdir git-demo && cd git-demo
 
 ## Demo 1 — The Three Areas (10 minutes)
 
-**Goal:** Make the working directory / staging area / local repo distinction concrete.
+**Goal:** Understand the difference between working directory, staging area, and local repo through hands-on steps.
 
 ```bash
 # Init a fresh repo
@@ -122,7 +122,7 @@ git log --oneline --graph
 
 ## Demo 4 — Fast-Forward, Merge & Rebase (30 minutes)
 
-**Goal:** Show students how the same `app.txt` file looks after each type of merge/rebase. Run each sub-demo in its own fresh repo. After every major operation, run `cat app.txt` and `git log --oneline --graph --all` so students can see **both** the file state and the history shape.
+**Goal:** See how the same `app.txt` file evolves after each type of merge and rebase. Run each sub-demo in its own fresh repo. After every major operation, run `cat app.txt` and `git log --oneline --graph --all` to see **both** the file state and the history shape.
 
 ---
 
@@ -336,7 +336,7 @@ cat app.txt
 # >>>>>>> feature/conflict-demo
 ```
 
-**Pause here — ask students:**
+**Stop and think:**
 - *Which line is from `main`?* (`<<<<<<< HEAD` = MongoDB)
 - *Which line is from the feature branch?* (below `=======` = PostgreSQL)
 - *Which one do we keep?*
@@ -470,7 +470,7 @@ Git will identify `commit 6` as the first bad commit automatically.
 
 ## Demo 8 — Conventional Commits Impact on Log (5 minutes)
 
-Show two git log outputs side by side (pre-written or created in demo):
+Compare these two log histories:
 
 **Without conventions:**
 ```

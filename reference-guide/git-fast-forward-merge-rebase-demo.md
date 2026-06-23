@@ -118,16 +118,29 @@ No merge commit is created. The `main` pointer simply moved forward to B.
 
 # Scenario 2: Non Fast-Forward Merge
 
-> Continuing in the same repo from Scenario 1. `students.txt` already contains Rahim, Karim, and Jannat from the fast-forward merge.
+> Continuing in the same repo. A reset commit creates a clean base with two sections — the student list and a `Trainer:` line — so both branches modify different areas and Git can auto-merge.
 
 ## Create Branch
 
 ```bash
 git switch main
+
+# Reset to a base with two separate sections
+cat > students.txt << 'EOF'
+Batch 13 Students
+
+1. Rahim
+2. Karim
+
+Trainer: TBD
+EOF
+git add students.txt
+git commit -m "chore: reset for Scenario 2"
+
 git switch -c feature/non-fast-forward-demo
 ```
 
-Update `students.txt`:
+Update `students.txt` — add Hasan to the student list, leave `Trainer: TBD` unchanged:
 
 ```bash
 cat > students.txt << 'EOF'
@@ -136,6 +149,8 @@ Batch 13 Students
 1. Rahim
 2. Karim
 3. Hasan
+
+Trainer: TBD
 EOF
 ```
 
@@ -164,17 +179,17 @@ Switch back to main:
 git switch main
 ```
 
-Update `students.txt`:
+Update only the `Trainer:` line — the student list stays unchanged:
 
 ```bash
-cat > students.txt << 'EOF'
-Batch 13 Students
-
-1. Rahim
-2. Karim
-
-Trainer: Sarowar Alam
-EOF
+sed -i 's/Trainer: TBD/Trainer: Sarowar Alam/' students.txt
+cat students.txt
+# Batch 13 Students
+#
+# 1. Rahim
+# 2. Karim
+#
+# Trainer: Sarowar Alam
 ```
 
 Commit:
@@ -235,16 +250,29 @@ Explanation:
 
 # Scenario 3: Rebase
 
-> Continuing in the same repo from Scenario 2. `main` now has the non-fast-forward merge commit combining Hasan and Trainer: Sarowar Alam.
+> Continuing in the same repo. A reset commit creates a clean base with a `Batch:` placeholder line so the rebase replay applies cleanly without conflicts.
 
 ## Create Branch
 
 ```bash
 git switch main
+
+# Reset to a base with two separate sections
+cat > students.txt << 'EOF'
+Batch 13 Students
+
+1. Rahim
+2. Karim
+
+Batch: TBD
+EOF
+git add students.txt
+git commit -m "chore: reset for Scenario 3"
+
 git switch -c feature/rebase-demo
 ```
 
-Update `students.txt`:
+Update `students.txt` — add Nusrat to the student list, leave `Batch: TBD` unchanged:
 
 ```bash
 cat > students.txt << 'EOF'
@@ -253,6 +281,8 @@ Batch 13 Students
 1. Rahim
 2. Karim
 3. Nusrat
+
+Batch: TBD
 EOF
 ```
 
@@ -281,17 +311,17 @@ Switch:
 git switch main
 ```
 
-Update `students.txt`:
+Update only the `Batch:` line — the student list stays unchanged:
 
 ```bash
-cat > students.txt << 'EOF'
-Batch 13 Students
-
-1. Rahim
-2. Karim
-
-Batch Started: June 2026
-EOF
+sed -i 's/Batch: TBD/Batch Started: June 2026/' students.txt
+cat students.txt
+# Batch 13 Students
+#
+# 1. Rahim
+# 2. Karim
+#
+# Batch Started: June 2026
 ```
 
 Commit:
@@ -340,10 +370,9 @@ Batch 13 Students
 
 1. Rahim
 2. Karim
+3. Nusrat
 
 Batch Started: June 2026
-
-3. Nusrat
 ```
 
 Notice:
@@ -382,12 +411,25 @@ No merge commit is created. After rebase, `feature/rebase-demo` was directly ahe
 
 # Scenario 4: Conflict Demo
 
-> Continuing in the same repo from Scenario 3. Both branches will intentionally change the same `Trainer:` line — causing a conflict during rebase.
+> Continuing in the same repo. A reset commit adds a `Trainer:` line that both branches will intentionally change differently — causing a rebase conflict.
 
 ## Create Branch
 
 ```bash
 git switch main
+
+# Reset to a base with the Trainer line both branches will conflict on
+cat > students.txt << 'EOF'
+Batch 13 Students
+
+1. Rahim
+2. Karim
+
+Trainer: Sarowar Alam
+EOF
+git add students.txt
+git commit -m "chore: reset for Scenario 4"
+
 git switch -c feature/conflict-demo
 ```
 

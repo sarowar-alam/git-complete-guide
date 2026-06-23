@@ -59,12 +59,14 @@ git switch -c feature/fast-forward-demo
 
 Update `students.txt`:
 
-```text
+```bash
+cat > students.txt << 'EOF'
 Batch 13 Students
 
 1. Rahim
 2. Karim
 3. Jannat
+EOF
 ```
 
 Commit:
@@ -127,12 +129,14 @@ git switch -c feature/non-fast-forward-demo
 
 Update `students.txt`:
 
-```text
+```bash
+cat > students.txt << 'EOF'
 Batch 13 Students
 
 1. Rahim
 2. Karim
 3. Hasan
+EOF
 ```
 
 Commit:
@@ -162,13 +166,15 @@ git switch main
 
 Update `students.txt`:
 
-```text
+```bash
+cat > students.txt << 'EOF'
 Batch 13 Students
 
 1. Rahim
 2. Karim
 
 Trainer: Sarowar Alam
+EOF
 ```
 
 Commit:
@@ -240,12 +246,14 @@ git switch -c feature/rebase-demo
 
 Update `students.txt`:
 
-```text
+```bash
+cat > students.txt << 'EOF'
 Batch 13 Students
 
 1. Rahim
 2. Karim
 3. Nusrat
+EOF
 ```
 
 Commit:
@@ -275,13 +283,15 @@ git switch main
 
 Update `students.txt`:
 
-```text
+```bash
+cat > students.txt << 'EOF'
 Batch 13 Students
 
 1. Rahim
 2. Karim
 
 Batch Started: June 2026
+EOF
 ```
 
 Commit:
@@ -409,7 +419,7 @@ git switch main
 Change the same trainer line to just "Sarowar" (intentionally different from the feature branch):
 
 ```bash
-sed -i 's/Trainer: Hasan/Trainer: Sarowar/' students.txt
+sed -i 's/Trainer: Sarowar Alam/Trainer: Sarowar/' students.txt
 ```
 
 Commit:

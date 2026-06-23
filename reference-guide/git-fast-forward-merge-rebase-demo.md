@@ -9,9 +9,9 @@ cd batch-13-test-repo
 
 ---
 
-# Lab Objectives
+# Objectives
 
-By the end of this lab, students will understand:
+By the end of this guide, you will understand:
 
 * Fast-Forward Merge
 * Non Fast-Forward Merge
@@ -19,7 +19,7 @@ By the end of this lab, students will understand:
 * Merge Conflicts
 * Git Commit Graph Visualization
 
-Useful command throughout the lab:
+Useful command throughout:
 
 ```bash
 git log --oneline --graph --all --decorate
@@ -575,6 +575,4 @@ cd ..
 rm -rf batch-13-test-repo
 ```
 
----
 
-Happy Learning Git!

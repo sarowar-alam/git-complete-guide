@@ -9,7 +9,7 @@
 
 **Clone this repo:**
 ```bash
-git clone https://github.com/md-sarowar-alam/git-complete-guide-forked.git
+git clone https://github.com/Sohagmia4047/git-complete-guide-forke.git
 cd Git-Fundamentals
 ```
 
